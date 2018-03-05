@@ -1,31 +1,32 @@
-// bower:scss
-// endbower
-
-.browserupgrade {
-  margin: 0.2em 0;
-  background: #ccc;
-  color: #000;
-  padding: 0.2em 0;
-}
-
-body {
-  background: #fafafa;
-  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-  color: #333;
-}
-
-.hero-unit {
-  margin: 50px auto 0 auto;
-  width: 300px;
-  font-size: 18px;
-  font-weight: 200;
-  line-height: 30px;
-  background-color: #eee;
-  border-radius: 6px;
-  padding: 60px;
-  h1 {
-    font-size: 60px;
-    line-height: 1;
-    letter-spacing: -1px;
+@charset 'utf-8';
+@import 'media_query.scss';
+@import 'global.scss';
+@import 'layout.scss';
+@import 'nav.scss';
+@import 'filter.scss';
+@import 'map.scss';
+@import 'risto_card.scss';
+@import 'risto_detail.scss';
+//debug
+.debug {
+  @include phone {
+    header {
+      border: 2px solid red;
+    }
+  }
+  @include tablet-p {
+    header {
+      border: 2px solid yellow;
+    }
+  }
+  @include tablet-l {
+    header {
+      border: 2px solid green;
+    }
+  }
+  @include desk {
+    header {
+      border: 2px solid blue;
+    }
   }
 }

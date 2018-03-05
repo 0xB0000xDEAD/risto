@@ -1,0 +1,32 @@
+/* .inside header {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1000;
+}
+ */
+
+.container {
+  margin: 0 auto;
+  width: 960px;
+}
+
+.header {
+  margin: 0 30px;
+}
+
+.main {
+  //   margin: 0 auto;
+  //   width: 1300px;
+  background-color: #f3f3f3; // min-height: 100%;
+}
+
+.footer {
+  background-color: #444;
+  color: #aaa;
+  font-size: 8pt;
+  letter-spacing: 1px;
+  padding: 25px;
+  text-align: center;
+  text-transform: uppercase;
+}

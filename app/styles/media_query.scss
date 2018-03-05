@@ -1,0 +1,36 @@
+@mixin phone {
+  @media screen and (max-width: 599px) {
+    @content;
+  }
+}
+
+@mixin tablet-p {
+  @media screen and (min-width: 600px) {
+    @content;
+  }
+}
+
+@mixin tablet-l {
+  @media screen and (min-width: 900px) {
+    @content;
+  }
+}
+
+@mixin desk {
+  @media screen and (min-width: 1200px) {
+    @content;
+  }
+}
+
+// @mixin for-big-desktop-up {
+//   @media screen and (min-width: 1800px) {
+//     @content;
+//   }
+// }
+// usage
+.my-box {
+  padding: 15px;
+  @include desk {
+    padding: 20px;
+  }
+}
