@@ -68,20 +68,6 @@
       }
     }
   }
-  #map-container {
-    padding: 5px 40px 0; // background: blue none repeat scroll 0 0; 
-    // height: 87%;
-    height: 400px; // position: fixed;
-    // right: 0;
-    // top: 80px;
-    // width: 50%;
-    #map {
-      border: 1px solid gray;
-      background-color: #ccc;
-      height: 100%;
-      width: 100%;
-    }
-  }
   #footer {
     bottom: 0;
     position: absolute;
@@ -117,12 +103,11 @@
       margin: 0 0 30px;
       overflow: hidden; // padding: 0 20px 20px;
       position: relative;
-      width: 85%;
       p {
         color: #666;
         margin: 0 0 10px;
       }
-      .test {
+      .review-info {
         font-weight: bold;
       }
     }

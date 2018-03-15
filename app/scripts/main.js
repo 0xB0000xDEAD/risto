@@ -1,3 +1,15 @@
+if ('serviceWorker' in navigator) {
+  window.addEventListener('load', function () {
+    navigator.serviceWorker.register('sw.js').then(function (registration) {
+      // Registration was successful
+      console.log('ServiceWorker registration successful with scope: ', registration.scope);
+    }, function (err) {
+      // registration failed :(
+      console.log('ServiceWorker registration failed: ', err);
+    });
+  });
+}
+
 let restaurants,
   neighborhoods,
   cuisines
@@ -5,7 +17,32 @@ var map;
 var markers = [];
 
 
-const myDB = new DBHelper();
+window.onload = function () {
+  /* google.maps.event.addListenerOnce(map, 'idle', function () {
+    // map is ready
+  }); */
+  let target = document.getElementsByClassName('gmnoprint');
+  // let target = document.getElementsByClassName('gm-style');
+
+  console.log(target);
+
+  for (const iterator of target) {
+    iterator.style.border = '1px solid blue';
+    iterator.style.opacity = '1';
+    iterator.setAttribute('tabindex', '-1');
+  }
+
+  // let temp = Array.from(target);
+  // console.log(temp);
+
+  // for (const iterator of temp) {
+  //   iterator.style.border = '1px solid red';
+  //   iterator.style.opacity = '1';
+  //   iterator.setAttribute('tabindex', '-1');
+  // }
+
+}
+
 
 
 
@@ -80,6 +117,10 @@ fillCuisinesHTML = (cuisines = self.cuisines) => {
  * Initialize Google map, called from HTML.
  */
 window.initMap = () => {
+  // new Promise()
+
+
+
   let loc = {
     lat: 40.722216,
     lng: -73.987501
@@ -91,6 +132,8 @@ window.initMap = () => {
   });
   updateRestaurants();
 }
+
+
 
 /**
  * Update page and map for current restaurants.
@@ -115,13 +158,17 @@ updateRestaurants = () => {
   })
 }
 
+
 /**
  * Clear current restaurants, their HTML and remove their map markers.
  */
 resetRestaurants = (restaurants) => {
+
+
   // Remove all restaurants
   self.restaurants = [];
-  const ul = document.getElementById('restaurants-list');
+  // const ul = document.getElementById('restaurants-list');
+  const ul = $('.restaurants-list')[0];
   ul.innerHTML = '';
 
   // Remove all map markers
@@ -133,19 +180,10 @@ resetRestaurants = (restaurants) => {
 /**
  * Create all restaurants HTML and add them to the webpage.
  */
-/* fillRestaurantsHTML = (restaurants = self.restaurants) => {
-  const ul = document.getElementById('restaurants-list');
+fillRestaurantsHTML = (restaurants = self.restaurants) => {
+  const ul = $('.restaurants-list');
   restaurants.forEach(restaurant => {
     ul.append(createRestaurantHTML(restaurant));
-  });
-  addMarkersToMap();
-} */
-fillRestaurantsHTML = (restaurants = self.restaurants) => {
-  console.log('paperino');
-
-  const ristos = document.getElementById('restaurants-list');
-  restaurants.forEach(restaurant => {
-    ristos.append(createRestaurantHTML(restaurant));
   });
   addMarkersToMap();
 }
@@ -153,12 +191,15 @@ fillRestaurantsHTML = (restaurants = self.restaurants) => {
 /**
  * Create restaurant HTML.
  */
-/* createRestaurantHTML = (restaurant) => {
+createRestaurantHTML = (restaurant) => {
+
   const li = document.createElement('li');
+  li.className = 'risto-card';
 
   const image = document.createElement('img');
   image.className = 'restaurant-img';
   image.src = DBHelper.imageUrlForRestaurant(restaurant);
+  image.setAttribute('alt', restaurant.name);
   li.append(image);
 
   const name = document.createElement('h1');
@@ -176,38 +217,12 @@ fillRestaurantsHTML = (restaurants = self.restaurants) => {
   const more = document.createElement('a');
   more.innerHTML = 'View Details';
   more.href = DBHelper.urlForRestaurant(restaurant);
+  more.setAttribute('aria-label', `see details for ${restaurant.name}`);
   li.append(more)
 
   return li
-} */
-createRestaurantHTML = (restaurant) => {
-  const risto = document.createElement('div');
-  risto.className = 'risto-card';
-
-  const image = document.createElement('img');
-  image.className = 'restaurant-img';
-  image.src = DBHelper.imageUrlForRestaurant(restaurant);
-  risto.append(image);
-
-  const name = document.createElement('h1');
-  name.innerHTML = restaurant.name;
-  risto.append(name);
-
-  const neighborhood = document.createElement('p');
-  neighborhood.innerHTML = restaurant.neighborhood;
-  risto.append(neighborhood);
-
-  const address = document.createElement('p');
-  address.innerHTML = restaurant.address;
-  risto.append(address);
-
-  const more = document.createElement('a');
-  more.innerHTML = 'View Details';
-  more.href = DBHelper.urlForRestaurant(restaurant);
-  risto.append(more)
-
-  return risto
 }
+
 
 /**
  * Add markers for current restaurants to the map.

@@ -12,13 +12,13 @@
 }
 
 .header {
-  margin: 0 30px;
+  // padding: 0 40px;
 }
 
 .main {
-  //   margin: 0 auto;
-  //   width: 1300px;
-  background-color: #f3f3f3; // min-height: 100%;
+  margin: 0 auto; //   width: 1300px;
+  background-color: #f3f3f3;
+  min-height: 100%;
 }
 
 .footer {
@@ -26,7 +26,7 @@
   color: #aaa;
   font-size: 8pt;
   letter-spacing: 1px;
-  padding: 25px;
+  padding: 25px 40px; // padding: 0 40px;
   text-align: center;
   text-transform: uppercase;
 }

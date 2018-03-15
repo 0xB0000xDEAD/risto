@@ -6,6 +6,10 @@ const wiredep = require('wiredep').stream;
 const runSequence = require('run-sequence');
 
 const $ = gulpLoadPlugins();
+
+// more debug info to add to reload 
+// console.log('File ' + event.path + ' was ' + event.type + ', running tasks...');
+
 const reload = browserSync.reload;
 //aggiunta
 var sass = require('gulp-sass');
@@ -120,7 +124,7 @@ gulp.task('extras', () => {
 
 gulp.task('clean', del.bind(null, ['.tmp', 'dist']));
 
-/* semplice ccs injecion */
+/* simple ccs injection */
 gulp.task('sass', function () {
   return gulp.src("app/styles/**/*.scss")
     .pipe(sass.sync({
@@ -138,13 +142,16 @@ gulp.task('sass', function () {
   // .pipe(browserSync.stream());
 });
 
+
+
 gulp.task('serve', () => {
-  runSequence(['clean' /* , 'wiredep' */ ], ['sass', 'scripts', 'fonts'], () => {
+  runSequence(['clean' /* , 'wiredep' */ ], ['sass', 'fonts'], () => {
     browserSync.init({
-      notify: true,
+      notify: false,
       port: 9000,
       server: {
-        baseDir: ['app'],
+        baseDir: 'app',
+        // directory: true
         // routes: {
         //   '/bower_components': 'bower_components'
         // }
@@ -160,7 +167,13 @@ gulp.task('serve', () => {
     // gulp.watch('app/styles/**/*.scss', ['sass']);
     gulp.watch('app/styles/**/*.scss', ['sass']).on('change', reload);
 
-    gulp.watch('app/scripts/**/*.js', ['scripts']);
+    // gulp.watch('app/scripts/**/*.js', ['scripts']);
+    gulp.watch('app/scripts/**/*.js').on('change', reload);
+
+    gulp.watch('app/sw.js').on('change', reload);
+
+    // console.log('File ' + event.path + ' was ' + event.type + ', running tasks...');
+
     gulp.watch('app/fonts/**/*', ['fonts']);
     //gulp.watch('bower.json', ['wiredep', 'fonts']);
   });

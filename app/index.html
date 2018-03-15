@@ -9,6 +9,7 @@
   <link rel="stylesheet" href="/styles/css/main.css">
 
   <title>Restaurant Reviews</title>
+
 </head>
 
 <body class="container debug">
@@ -20,12 +21,12 @@
     </nav>
   </header>
 
-  <main class="maincontent">
-    <section id="map-container">
-      <div id="map"></div>
+  <main class="main">
+    <section id="map-container" class="map-container">
+      <div id="map" role="application" aria-label="Map with restaurants"></div>
     </section>
     <section>
-      <div class="filter-options">
+      <div class="filter-options" role='search' aria-label="filter the result for location or type">
         <h2>Filter Results</h2>
 
         <select id="neighborhoods-select" name="neighborhoods" onchange="updateRestaurants()">
@@ -34,15 +35,16 @@
         <select id="cuisines-select" name="cuisines" onchange="updateRestaurants()">
           <option value="all">All Cuisines</option>
         </select>
-
       </div>
-      <div id="restaurants-list"></div>
+
+      <ul class="restaurants-list"></ul>
     </section>
   </main>
+  <!-- load jquery todo: build instead CDN -->
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha256-3edrmyuQ0w65f8gfBsqowzjJe2iM6n0nKciPUp8y+7E="
+    crossorigin="anonymous"></script>
   <script type="application/javascript" charset="utf-8" src="scripts/dbhelper.js"></script>
   <script type="application/javascript" charset="utf-8" src="scripts/main.js"></script>
-
-
   <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBJoqpzXmAlOuZ2e-eKP4wDe9YfLpnWhiY&libraries=places&callback=initMap"></script>
 
 
