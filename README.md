@@ -1,18 +1,18 @@
 # Restaurant review
 
 ## Table of Contents
-* [What's this?](What's\ this?)
+* [What is this?](What is this?)
 * [How to use it](How\ to\ use\ it)
 * [Note](Note)
 
 
-## What's this?
+## What is this?
 
 A restaurants review page that load the content from a local json [file](risto/app/data/restaurants.json).
 
 ## How to use it
 
-Clone the git with:
+Clone the repository with:
 
 ```
 $ git clone ***
@@ -25,6 +25,14 @@ Run in the terminal
 ```
 
 a local server showing [index.html](risto/app/index.html) will be loaded in your browser.
+
+__!__  If you get some error while loading the review data, please change the port in the following code portion in [dbhelper.js](risto/app/scripts/dbhelper.js)
+
+```
+static get DATABASE_URL() {
+    const port = 9001 // Change this to your server port
+    return `http://localhost:${port}/data/restaurants.json`;
+  }```
 
 
 

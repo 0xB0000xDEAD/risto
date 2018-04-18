@@ -8,11 +8,13 @@
 
 .container {
   margin: 0 auto;
-  width: 960px;
 }
 
 .header {
   // padding: 0 40px;
+  h1 {
+    line-height: 1.2;
+  }
 }
 
 .main {
