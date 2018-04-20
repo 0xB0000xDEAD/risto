@@ -17,34 +17,16 @@ var map;
 var markers = [];
 
 
-window.onload = function () {
-  /* google.maps.event.addListenerOnce(map, 'idle', function () {
-    // map is ready
-  }); */
-  let target = document.getElementsByClassName('gmnoprint');
-  // let target = document.getElementsByClassName('gm-style');
+// window.onload = function () {
 
-  console.log(target);
-
-  for (const iterator of target) {
-    iterator.style.border = '1px solid blue';
-    iterator.style.opacity = '1';
-    iterator.setAttribute('tabindex', '-1');
-  }
-
-  // let temp = Array.from(target);
-  // console.log(temp);
-
-  // for (const iterator of temp) {
-  //   iterator.style.border = '1px solid red';
-  //   iterator.style.opacity = '1';
-  //   iterator.setAttribute('tabindex', '-1');
-  // }
-
-}
-
-
-
+//   let target = document.getElementsByClassName('gmnoprint');
+//   console.log(target);
+//   for (const iterator of target) {
+//     iterator.style.border = '1px solid blue';
+//     iterator.style.opacity = '1';
+//     iterator.setAttribute('tabindex', '-1');
+//   }
+// }
 
 
 /**

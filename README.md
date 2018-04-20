@@ -30,24 +30,11 @@ __!__  If you get some error while loading the review data, please change the po
 
 ```
 static get DATABASE_URL() {
-    const port = 9001 // Change this to your server port
+    const port = 9000 // Change this to your server port
     return `http://localhost:${port}/data/restaurants.json`;
   }
 
 ```
-
-__!__  If you get some error while loading the review data, please change the port in the following code portion in [dbhelper.js](/app/scripts/dbhelper.js)
-
-```
-static get DATABASE_URL() {
-    const port = 9001 // Change this to your server port
-    return `http://localhost:${port}/data/restaurants.json`;
-  }
-
-```
-
-
-
 ## Note
 
 Please look at the _task_ in [gulpfile.js](gulpfile.js) to run other action.

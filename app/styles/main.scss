@@ -8,25 +8,26 @@
 @import 'risto_card.scss';
 @import 'risto_detail.scss';
 //debug
-.debug {
-  @include phone {
-    header {
-      border: 2px solid red;
-    }
-  }
-  @include tablet-p {
-    header {
-      border: 2px solid yellow;
-    }
-  }
-  @include tablet-l {
-    header {
-      border: 2px solid green;
-    }
-  }
-  @include desk {
-    header {
-      border: 2px solid blue;
-    }
-  }
-}
+
+// .debug {
+//   @include phone {
+//     header {
+//       border: 2px solid red;
+//     }
+//   }
+//   @include tablet-p {
+//     header {
+//       border: 2px solid yellow;
+//     }
+//   }
+//   @include tablet-l {
+//     header {
+//       border: 2px solid green;
+//     }
+//   }
+//   @include desk {
+//     header {
+//       border: 2px solid blue;
+//     }
+//   }
+// }

@@ -11,11 +11,10 @@ const $ = gulpLoadPlugins();
 // console.log('File ' + event.path + ' was ' + event.type + ', running tasks...');
 
 const reload = browserSync.reload;
-//aggiunta
 var sass = require('gulp-sass');
 
 
-let dev = true;
+let dev = true; //todo use gulp if to red process.env
 
 gulp.task('styles', () => {
   return gulp.src('app/styles/*.scss')
@@ -145,16 +144,12 @@ gulp.task('sass', function () {
 
 
 gulp.task('serve', () => {
-  runSequence(['clean' /* , 'wiredep' */ ], ['sass', 'fonts'], () => {
+  runSequence(['clean'  ], ['sass', 'fonts'], () => {
     browserSync.init({
       notify: false,
       port: 9000,
       server: {
-        baseDir: 'app',
-        // directory: true
-        // routes: {
-        //   '/bower_components': 'bower_components'
-        // }
+        baseDir: 'app'
       }
     });
     gulp.watch([
@@ -179,7 +174,7 @@ gulp.task('serve', () => {
   });
 });
 
-
+// original 
 
 // gulp.task('serve', () => {
 //   runSequence(['clean', 'wiredep'], ['styles', 'scripts', 'fonts'], () => {

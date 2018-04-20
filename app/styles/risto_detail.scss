@@ -2,12 +2,8 @@
 
 .inside {
   header {
-    // top: 0;
-    // width: 100%; // sostituire con flex-basis
-    // z-index: 1000;
   }
   .main {
-    //non utilizzata
   }
   #restaurant-container {
     @include tablet-l {
@@ -17,10 +13,8 @@
         margin: 0 5px 0 0;
       }
       .restaurant-details {
-        margin: 0 0 0 15px; // border: 2px solid cyan;
-        width: 400px; // flex-basis: 400px; 
-        // flex-shrink: 0;
-        // align-self: flex-end;
+        margin: 0 0 0 15px; 
+        width: 400px; 
         margin-top: 60px;
       }
     }
@@ -54,7 +48,6 @@
       //debug
       td,
       tr {
-        // border: 1px solid red;
         border-bottom: 1px solid grey;
       }
       #restaurant-address {
@@ -79,7 +72,7 @@
 #reviews-container {
   border-bottom: 1px solid #d9d9d9;
   border-top: 1px solid #fff;
-  padding: 30px 40px 30px; // width: 50%;
+  padding: 30px 40px 30px; 
 }
 
 #reviews-container {
